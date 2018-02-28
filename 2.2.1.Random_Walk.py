@@ -1,16 +1,15 @@
-setwd('C:/Active/QBiol')
-library(stats)
 
-RandomWalk <- function(x_0, y_0, t_0, L, tau, steps, runs, seed)
+RandomWalk <- function(x_0, y_0, t_0, L, tau, s, runs, seed)
 { # Where x_0, y_0 are the initial spatial coordinates
   #       t_0 is the initial time
   #       L is the spacial step length (km)
   #       tau is the temporal step length (days)
-  #       steps is the total number of steps
-  #       runs is the number of simmulations 
+  #       steps is the total number of steps or stopping probability
+  #       runs is the number of simulations 
   #       seed is the random number seed for reproducibility 
   
   set.seed(seed)
+  
   
   #initiallizes coordinate vectors
   runsbysteps <- array(dim=c(steps,3,runs))
