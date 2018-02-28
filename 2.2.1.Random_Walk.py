@@ -1,18 +1,25 @@
+import random as r
 
-RandomWalk <- function(x_0, y_0, t_0, L, tau, s, runs, seed)
-{ # Where x_0, y_0 are the initial spatial coordinates
-  #       t_0 is the initial time
-  #       L is the spacial step length (km)
-  #       tau is the temporal step length (days)
-  #       steps is the total number of steps or stopping probability
-  #       runs is the number of simulations 
-  #       seed is the random number seed for reproducibility 
+def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
+    # Where x_0, y_0 are the initial spatial coordinates
+    #       t_0 is the initial time
+    #       L is the spacial step length (km)
+    #       tau is the temporal step length (days)
+    #       steps is the total number of steps or stopping probability
+    #       runs is the number of simulations 
+    #       seed is the random number seed for reproducibility 
   
-  set.seed(seed)
+    r.seed(seed)
   
-  
-  #initiallizes coordinate vectors
-  runsbysteps <- array(dim=c(steps,3,runs))
+    if s < 1 :
+        sprob = s
+    elif s > 1 :
+        steps = s
+    else : 
+        raise Exception("This is only one step!")
+        
+    #initiallizes coordinate vectors
+    runsbysteps <- array(dim=c(steps,3,runs))
   
   runsbysteps[1,,] <- c(x_0,y_0,t_0)
   
