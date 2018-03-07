@@ -25,7 +25,8 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
      
     #For any number of simulations
     for i in range(0,runs-1) :
-        trials[i][0] <- [x_0,y_0,t_0]
+        trials[i] = []
+        trials[i].append([x_0,y_0,t_0])
     
         #Computes position at each time step
         for j in range(1,steps-1) :
@@ -35,10 +36,10 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
             theta = r.uniform(0,2*n.pi)
       
             #displacement in this step
-            dx <- L * n.cos(theta)
-            dy <- L * n.sin(theta)
+            dx = L * n.cos(theta)
+            dy = L * n.sin(theta)
     
-            trials[i][j] = map(add, trials[i][j-1],[dx, dy, tau])
+            trials[i].append(map(add, trials[i][j-1],[dx, dy, tau]))
              
 
     if runs != 1 :
