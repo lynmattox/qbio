@@ -27,10 +27,10 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
     trials = []
      
     #For any number of simulations
-    for i in range(0,runs-1) :
+    for i in range(runs) :
         trials.append([])
         trials[i] = []
-        trials[i].append([x_0,y_0,t_0])
+        trials[i].append([x0,y0,t0])
         
         j = 1
         flag = (1==1)
@@ -45,7 +45,7 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
             dx = L * n.cos(theta)
             dy = L * n.sin(theta)
     
-            trials[i].append(map(add, trials[i][j-1],[dx, dy, tau]))
+            trials[i].append(list(map(add, trials[i][j-1],[dx, dy, tau])))
             j += 1
             if steps > 0 and j > steps:
                 flag = (1==0)
