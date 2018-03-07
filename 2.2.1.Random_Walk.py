@@ -27,7 +27,11 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
     trials = []
      
     #For any number of simulations
-    for i in range(runs) :
+<<<<<<< HEAD
+    for i in range(0,runs) :
+=======
+    for i in range(0,runs) :
+>>>>>>> c99df45b53acbf0d95fa690c4b040d92cce509f7
         trials.append([])
         trials[i] = []
         trials[i].append([x0,y0,t0])
