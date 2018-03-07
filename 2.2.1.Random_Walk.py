@@ -34,7 +34,7 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
         j = 1
         stop = 0
         #Computes position at each time step
-        while j < steps or stop = 0 :
+        while j < steps or stop == 0 :
     
             #theta is the direction of movement (from a uniform random distribution)
             #0 is East
@@ -47,7 +47,7 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
             trials[i].append(map(add, trials[i][j-1],[dx, dy, tau]))
             j += 1
             
-            if r.uniform(0,1) < sprob
+            if r.uniform(0,1) < sprob :
                 stop = 1
             
 
