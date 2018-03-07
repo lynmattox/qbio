@@ -12,7 +12,10 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
     #       seed is the random number seed for reproducibility 
   
     r.seed(seed)
-  
+    
+    sprob = 0
+    steps = 0
+    
     if s < 1 :
         sprob = s
     elif s > 1 :
@@ -27,9 +30,11 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
     for i in range(0,runs-1) :
         trials[i] = []
         trials[i].append([x_0,y_0,t_0])
-    
+        
+        j = 1
+        stop = 0
         #Computes position at each time step
-        for j in range(1,steps-1) :
+        while j < steps or stop = 0 :
     
             #theta is the direction of movement (from a uniform random distribution)
             #0 is East
@@ -40,7 +45,11 @@ def RandomWalk(x0, y0, t0, L, tau, s, runs, seed):
             dy = L * n.sin(theta)
     
             trials[i].append(map(add, trials[i][j-1],[dx, dy, tau]))
-             
+            j += 1
+            
+            if r.uniform(0,1) < sprob
+                stop = 1
+            
 
     if runs != 1 :
         results = trials[:][-1]
